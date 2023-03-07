@@ -2,12 +2,15 @@
 
 ## What is the project about?
 
-Repository is for educational purpose - learning a Hibernate framework. The main [task](Technical%20task.pdf) 
-is implement a DAO using Hibernate instead of JDBC Template, which has been already implemented before. 
+Repository is for educational purpose - learning a Hibernate framework. The main [task](Technical%20task.pdf)
+is implement a DAO using Hibernate instead of JDBC Template, which has been already implemented before.
 <br>
 I am watching the [course][1] about Spring framework, where the topic of Hibernate is attached,
 making some notes and adding them to the project, writing examples from the
 videos and mastering my skill in this framework.
+<br>
+After downloading the code, you can select with which DAO run the application: JDBC Template or Hibernate in
+[configuration class](src/main/java/org/stanislav/config/SpringConfig.java). By default, Hibernate is used.
 
 ## What is the purpose of this project?
 
@@ -18,7 +21,7 @@ the [JDBC][3] in the application.
 
 ## Getting Started
 
-As there isn't a real or PET project, for viewing the difference between implementations of DAO, 
+As there isn't a real or PET project, for viewing the difference between implementations of DAO,
 you can see previous commits or download project to your computer seethe whole code.
 
 ### Prerequisites
@@ -81,11 +84,10 @@ some additional dependencies.
 
 #### What things you need to install the software and how to install them
 
-
 ##### Database configuration
 
 For running the database you can use as me PostgreSQL or create your own database on another SQL server
-using the [script](database/dump.sql) file of creating the database. 
+using the [script](database/dump.sql) file of creating the database.
 **Note**: if you use another server not such PostgreSQL
 you should change JDBC driver for working with it and configurate the connection to your server in
 [properties files](src/main/resources/) by changing values in the properties.
@@ -96,6 +98,7 @@ contains only keys for configuration the database, so you can put your values to
 application with this database configuration.
 
 ##### Server configuration
+
 For running the code with Spring MVC you need install the Tomcat and configure it
 in your idea. If you use the Intellij IDEA you can click on **Run** button and choose **Edit configuration**,
 then add configuration for Tomcat server. Almost all configuration of app must be added
@@ -103,10 +106,17 @@ automatically, but check it before running. You can see
 official [guide](https://www.youtube.com/watch?v=ThBw3WBTw9Q&ab_channel=IntelliJIDEAbyJetBrains).
 After configuration, you can press run button of the server and go to browser to check the application work.
 
+##### Hibernate configuration
+
+If you want to make some changes in Hibernate configuration, you must edit values
+in [hibernate.properties file](src/main/resources/hibernate.properties).
+If you want to add some more properties you must write additional java code
+in [configuration class](src/main/java/org/stanislav/config/SpringConfig.java).
 
 ## Examples of web-application's pages. Endpoints.
 
 If you want to open them in browser you need to enter the next URL:
+
 * "**localhost:{port}/{applicationContext}/people**" - to open a page with all peoples;
 
 where  **{port}** - is a port, on which you server is running; **{applicationContext}** - is an application
@@ -121,6 +131,7 @@ Here you can find the screenshots of the web-application:
 ![](images/examples/New%20person.png)
 
 ![](images/examples/Edit%20person.png)
+
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
